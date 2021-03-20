@@ -12,8 +12,8 @@ import ru.mariknv86.medhelper.service.RequestService;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.*;
-//import java.nio.file.Path;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Random;
 
 @RestController
@@ -40,7 +40,7 @@ public class UploadController {
             theDir.mkdirs();
         }
 
-        Files.write(Path.of(path), bytes);
+        Files.write(Paths.get(path), bytes);
 
         requestService.loadFromFile(path);
 

@@ -2,6 +2,7 @@ package ru.mariknv86.medhelper.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +26,7 @@ public class UploadController {
     private final RequestService requestService;
 
     @PostMapping("/api/upload")
+    @CrossOrigin
     public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file) throws IOException, ParserConfigurationException, SAXException {
 
         Random random = new Random();

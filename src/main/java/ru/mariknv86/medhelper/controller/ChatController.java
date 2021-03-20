@@ -19,17 +19,20 @@ public class ChatController {
     List<String> chatLog = new ArrayList<>();
 
     @GetMapping
+    @CrossOrigin
     public ResponseEntity<?> getChatUpdates() {
         return ResponseEntity.ok(chatLog);
     }
 
     @PostMapping("/consultant")
+    @CrossOrigin
     public ResponseEntity<?> sendMessageFromConsultant(@RequestBody MessageDTO messageDTO) {
         chatLog.add("Консультант: " + messageDTO.getMessage());
         return ResponseEntity.ok(new ResultTrueDto());
     }
 
     @PostMapping("/client")
+    @CrossOrigin
     public ResponseEntity<?> sendMessageFromUser(@RequestBody MessageDTO messageDTO) {
         chatLog.add("Клиент: " + messageDTO.getMessage());
         return ResponseEntity.ok(new ResultTrueDto());
